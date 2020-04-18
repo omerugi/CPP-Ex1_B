@@ -133,7 +133,22 @@ void Tree::print2DUtil(Node *root, int space)
 string Tree::relation(string name){
     return this->root.relation(0,name);
 };
+
+
+void static is_valid_name(string s) {
+
+    for (char i : s) {
+        if( (int(i)>= 97 && int(i)<=122) || (int(i)>= 65 && int(i)<=90) || (i == '-') ){
+           
+        }else{ throw runtime_error("usage of bad signe ");}
+    }
+
+};
+
+
 string Tree::find(string name){
+
+    is_valid_name(name);
 
     if(name == "me"){ return this->root.get_name();}
     else if(this->root.get_father() && name == "father" ){
